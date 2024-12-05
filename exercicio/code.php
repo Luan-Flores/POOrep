@@ -1,9 +1,9 @@
 <?php
 class Panela{
     public $tipo;
-    public $material;
+    private $material;
     public $tamanho;
-    public $cabo;
+    private $cabo;
 
     public function __construct($tipo,$material,$tamanho,$cabo){
         $this->tipo = $tipo;
@@ -12,12 +12,12 @@ class Panela{
         $this->cabo = $cabo;
     }
     public function fritar($alimento){
-        $this->alimento = $alimento;
-        echo "a panela  está fritando $this->alimento !";
+
+        echo "a panela  está fritando $alimento !";
     }
     public function lavar($sabao){
-        $this->sabao = $sabao;
-        echo "a panela está sendo lavada com o sabao de $this->sabao !";
+        
+        echo "a panela está sendo lavada com o sabao de $sabao !";
         if ($this->material == 'aderente'){
             echo "a panela está em perigo! ";
         }
@@ -25,8 +25,11 @@ class Panela{
             echo "Ok limpando";
         }
     }
+    public function
+
 }
 
-// $p1 = new Panela('frigideira','aderente','grande','madeira');
-// $p1->fritar('ovo');
-// $p1->lavar('coco');
+$p1 = new Panela('frigideira','aderente','grande','madeira');
+
+$p1->$cabo = "é de pedra agora";
+

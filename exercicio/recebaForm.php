@@ -35,8 +35,11 @@ class CadastroPanela{
         return $novaPanela;
 
         include '../exercicio/form.php';
+        include '../exercicio/banco.php';
+        
 
     }
+    
 }
 
 $cadastro = new CadastroPanela();
