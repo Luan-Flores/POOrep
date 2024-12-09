@@ -25,11 +25,10 @@ class Panela{
             echo "Ok limpando";
         }
     }
-    public function
+    public function mostrar(){
+        echo "A panela de tipo $this->tipo é feita em material $this->material, com o cabo feito em $this->cabo";
+    }
 
 }
 
-$p1 = new Panela('frigideira','aderente','grande','madeira');
-
-$p1->$cabo = "é de pedra agora";
 

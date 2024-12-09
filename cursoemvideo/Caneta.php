@@ -1,25 +1,24 @@
 <?php
 
 class Caneta{
-    private $conexao;
-    private $table = 'canetas';
     public $modelo;
-    public $cor;
-    public $ponta;
-    public $carga;
-    public $tampada;
-
-    public function __construct($bd){
-        $this->conexao = $bd;
-    }
-    }
-    function cadastrar(){
-        $query = "INSERT INTO {$this->table}(modelo,cor,ponta,carga,tampada) VALUES();";
-    }
-
-    function tampar(){
-        echo $this->tampada = True;
-    }
+    private $ponta;
     
-    function destampar(){}
+    public function getModelo(){
+        return $this->modelo;
+    }
+
+    public function setModelo($m){
+        $this->modelo = $m; 
+    }
+    public function getPonta(){
+        return $this->ponta;
+    }
+    public function setPonta($p){
+        $this->ponta = $p;
+    }
+
+}
+    
+ 
 
