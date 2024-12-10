@@ -12,9 +12,9 @@
         <input type="text" name="nome" id="nome" required><br><br>
 
         <label>Tipo de conta:</label><br>
-        <input type="radio" name="tipo" value="Corrente" id="corrente" required>
+        <input type="radio" name="tipoConta" value="Corrente" id="corrente" required>
         <label for="corrente">Corrente</label><br>
-        <input type="radio" name="tipo" value="Poupança" id="poupanca">
+        <input type="radio" name="tipoConta" value="Poupança" id="poupanca">
         <label for="poupanca">Poupança</label><br><br>
 
         <label for="numConta">Número da Conta:</label>
@@ -23,8 +23,8 @@
         <label for="saldo">Saldo:</label>
         <input type="number" name="saldo" id="saldo" step="0.01" required><br><br>
 
-        <label for="status">Status:</label>
-        <select name="status" id="status" required>
+        <label for="statusConta">Status:</label>
+        <select name="statusConta" id="statusConta" required>
             <option value="Ativa">Ativa</option>
             <option value="Inativa">Inativa</option>
         </select><br><br>

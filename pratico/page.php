@@ -1,13 +1,17 @@
 <?php
-include_once '../pratico/banco.php';
+include_once '../pratico/page.php';
+require_once '../pratico/conexao.php';
+require_once '../pratico/model.php';
+
 
 $acao = isset($_GET['acao']) ? $_GET['acao'] : '';
 switch($acao)
 {
     case 'cadastrar':
-        $contaBanco = new Banco();
-        $contaBanco->abrirConta($_POST['numConta'], $_POST['tipo'], $_POST['nome'],$_POST['saldo'],$_POST['status']);
-        var_dump($contaBanco);
+        $conexao = new Database();
+        $contaBanco = new Banco($conexao);
+        $contaBanco->abrirConta($_POST['nome'], $_POST['numConta'], $_POST['tipoConta'],$_POST['saldo'],$_POST['statusConta']);
+        // var_dump($contaBanco);
         
         default:
         include '../pratico/form.php';
