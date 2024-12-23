@@ -9,3 +9,4 @@ create table usuario(
     saldo float not null,
     statusConta enum ('Ativo','Inativo')
 );
+asss

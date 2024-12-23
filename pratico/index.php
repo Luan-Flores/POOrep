@@ -8,13 +8,19 @@
 <body>
     
     <?php
-        require_once '../pratico/banco.php';
-        require_once '../pratico/form.php';
         require_once '../pratico/conexao.php';
-        $db = new Database();
-        $db->conectar();
+        require_once '../pratico/model.php';
+        require_once '../pratico/controller.php';
         
-
+        $conexao = new Database();
+        $banco = new Banco($conexao->conectar());
+        
+        // Configurando os dados da conta
+        echo "teste";
+        
+        
+        // Tentando abrir a conta
+       
         
 
     ?>

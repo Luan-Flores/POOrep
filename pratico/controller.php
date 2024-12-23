@@ -12,15 +12,19 @@ class UsuarioController{
         $bd = $conexao->conectar();
 
         $newConta = new Banco($bd);
-        $newConta->setNome($nome);
-        $newConta->setNumConta($numConta);
-        $newConta->setSaldo($saldo);
-        $newConta->setStatusConta($statusConta);
-        $newConta->setTipoConta($tipoConta);
+        $newConta->__set('nome',$nome);
+        $newConta->__set('numConta',$numConta);
+        $newConta->__set('saldo',$saldo);
+        $newConta->__set('statusConta',$statusConta);
+        $newConta->__set('tipoConta',$tipoConta);
+        // $newConta->setNumConta($numConta);
+        // $newConta->setSaldo($saldo);
+        // $newConta->setStatusConta($statusConta);
+        // $newConta->setTipoConta($tipoConta);
         
         
         if ($newConta->abrirConta()) {
-            $bd->close();
+            $conexao->fechar();
             header('Location: ../pratico/page.php');
             exit; 
         } else {
