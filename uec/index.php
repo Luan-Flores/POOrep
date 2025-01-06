@@ -8,16 +8,23 @@
 <body>
     <pre>
         <?php
-    require_once '../uec/model.php';
+    require_once '../uec/lutador.php';
 
     $l1 = new Lutador('bruno','brasileiro',19,1.98,80);
     var_dump($l1);
     $l1->apresentar();
     
     $l1->status();
-    $l1->getVitorias();
-    $l1->ganharLuta();
-    $l1->getVitorias();
+    $l1->empatarLuta();
+    $l1->status();
+
+    $l2 = new Lutador('Renato','Mongolia',23,1.80,82);
+    var_dump($l2);
+    $l2->apresentar();
+    $l2->getChance();
+    
+
+
         ?>
     </pre>
 </body>
