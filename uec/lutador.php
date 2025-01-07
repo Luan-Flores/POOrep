@@ -11,6 +11,7 @@ class Lutador{
     private $derrotas;
     private $empates;
     private $chanceWin;
+    
 
     public function __construct($no,$na,$age,$hei,$wei)
     {
@@ -21,7 +22,7 @@ class Lutador{
         $this->vitorias = 0;
         $this->derrotas = 0;
         $this->empates = 0;
-        $this->chanceWin = 5;
+        $this->chanceWin = 50;
         $this->setPeso($wei);
     }
     public function setCategoria(){
@@ -69,29 +70,37 @@ class Lutador{
     }
     public function ganharLuta(){
         echo "Lutador {$this->nome} ganhou a última luta. ";
+        
         $this->vitorias = $this->getVitorias() + 1;
+
+        $this->setChanceWin();
+        echo "Vitórias de {$this->nome}: {$this->vitorias}";
     }
     public function perderLuta(){
         echo "Lutador {$this->nome} perdeu a última luta. ";
         $this->derrotas = $this->getDerrotas() + 1;
+        echo "Derrotas de {$this->nome}: {$this->derrotas}";
     }
     public function empatarLuta(){
         echo "Lutador {$this->nome} empatou a última luta. ";
         $this->empates = $this->getEmpates() + 1;
     }
     public function getVitorias(){
-        echo "Vitórias de {$this->nome}: {$this->vitorias}";
         return $this->vitorias;
     }
     public function getChance(){
-        $chanceWin = 10*$this->chanceWin;
-        echo "Probabilidade de vitória do lutador {$this->nome}: $chanceWin%";
+        $chanceWin = $this->chanceWin;
+        // echo "Probabilidade de vitória do lutador {$this->nome}: $chanceWin%";
+        return $chanceWin;
     }
     public function setChanceWin(){
-
+        $oldWins = $this->getChance();
+        // $conta = $this->getVitorias();
+        $result = $this->chanceWin += 1;
+        echo "A probabilidade de vitória de {$this->nome} ($oldWins%) passou a ser de {$this->chanceWin}%";
+        return $result;
     }
     public function getDerrotas(){
-        echo "Derrotas de {$this->nome}: {$this->derrotas}";
         return $this->derrotas;
     }
     public function getEmpates(){
