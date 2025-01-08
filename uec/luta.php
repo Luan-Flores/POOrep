@@ -23,19 +23,21 @@ class Luta{
         $this->desafiado->getChance();
         $this->desafiante->getChance();
         if ($this->desafiado->getChance() > $this->desafiante->getChance()){
-            echo "desafiado ganhou";
+            echo "desafiado ganhou ";
             $this->desafiado->ganharLuta();
             $this->desafiante->perderLuta();
             
         }
         
         else if ($this->desafiado->getChance() < $this->desafiante->getChance()){
-            echo "desafiado perdeu";
+            echo "desafiado perdeu ";
             $this->desafiante->ganharLuta();
             $this->desafiado->perderLuta();
         }
         else{
-            echo "caiu no else.";
+            echo "empate. ";
+            $this->desafiado->empatarLuta();
+            $this->desafiante->empatarLuta();
         }
     }
 }

@@ -104,7 +104,6 @@ class Lutador{
         return $this->derrotas;
     }
     public function getEmpates(){
-        echo "Empates de {$this->nome}: {$this->empates}";
         return $this->empates;
     }
 }
