@@ -15,20 +15,20 @@ class Pessoa{
     public function cadastro(){
         $db = $this->conexao;
         $db->openDb();
-        // $query = "INSERT INTO pessoa VALUES ('','{$this->nome}','{$this->idade}','{$this->sexo}');";
-        // echo "thats me in the corner ";
-        // $cry = $banco->query($query);
-        // return $cry;
-
 
         $sql = "INSERT INTO pessoa (nome, idade, sexo) VALUES (?, ?, ?)";
+        // query($sql, $params = []) Array opcional dos valores que substituem os placeholders (?) na consulta SQL -> (db.php)
         $db->query($sql, ["{$this->nome}", "{$this->idade}", "Masculino"]);
         return $db;
 
-
     }
     public function printar($nome){
-        echo "$nome print function {$this->idade}";
-        
+        echo "Novo usuário: {$nome} cadastrado com sucesso. ";
+    }
+    public function aniver(){
+        $oldAge = $this->idade;
+        $this->idade += 1;
+        echo "Parabéns! É seu aniversário. Sua idade de $oldAge anos passou a ser {$this->idade} anos. ";
+
     }
 }

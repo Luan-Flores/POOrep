@@ -21,6 +21,7 @@ class BancoDados{
         echo "Conexão fechada. ";
         return !$this->conexao;
     }
+    
     public function query($sql, $params = []) {
         try {
             $stmt = $this->conexao->prepare($sql);

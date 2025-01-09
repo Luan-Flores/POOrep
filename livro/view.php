@@ -23,6 +23,7 @@
     </select>
     <br><br>
     <button type="submit">Enviar</button>
+    <button><a href="../livro/menu.php">Voltar</a></button>
     </form>
 </body>
 </html>

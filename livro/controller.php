@@ -14,5 +14,12 @@ class PessoaController{
         $pessoa->sexo = $sexo;
         $pessoa->printar($nome);
         $pessoa->cadastro();
+        $pessoa->aniver();
+
+        if ($pessoa->cadastro()){
+            echo "Cadastrado. ";
+            $conexao->closeDb();
+            header('Location: ../livro/menu');
+        }
     }
 }
