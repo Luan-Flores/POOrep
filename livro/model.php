@@ -15,12 +15,11 @@ class Pessoa{
     public function cadastro(){
         $db = $this->conexao;
         $db->openDb();
-
+        
         $sql = "INSERT INTO pessoa (nome, idade, sexo) VALUES (?, ?, ?)";
         // query($sql, $params = []) Array opcional dos valores que substituem os placeholders (?) na consulta SQL -> (db.php)
         $db->query($sql, ["{$this->nome}", "{$this->idade}", "Masculino"]);
         return $db;
-
     }
     public function printar($nome){
         echo "Novo usuário: {$nome} cadastrado com sucesso. ";
@@ -29,6 +28,24 @@ class Pessoa{
         $oldAge = $this->idade;
         $this->idade += 1;
         echo "Parabéns! É seu aniversário. Sua idade de $oldAge anos passou a ser {$this->idade} anos. ";
-
+        
     }
+    public function consultar() {
+        $db = $this->conexao;
+        $db->openDb();
+    
+        $sql = "SELECT * FROM pessoa";
+        
+        // Executar a consulta
+        $resultado = $db->query($sql);
+    
+        if ($resultado && $resultado->num_rows > 0) {
+            // Buscar todos os resultados como um array associativo
+            $dados = $resultado->fetch_all(MYSQLI_ASSOC);
+            return $dados;
+        } else {
+            return null; // Nenhum dado encontrado
+        }
+    }
+    
 }

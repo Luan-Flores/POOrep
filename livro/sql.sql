@@ -7,4 +7,4 @@ create table pessoa(
     idade int,
     sexo enum('Masculino','Feminino','Outro')
 );
-select * from pessoa;
+
