@@ -35,17 +35,23 @@ class Pessoa{
         $db->openDb();
     
         $sql = "SELECT * FROM pessoa";
-        
-        // Executar a consulta
-        $resultado = $db->query($sql);
+        $stmt = $db->query($sql);
     
-        if ($resultado && $resultado->num_rows > 0) {
-            // Buscar todos os resultados como um array associativo
-            $dados = $resultado->fetch_all(MYSQLI_ASSOC);
-            return $dados;
-        } else {
-            return null; // Nenhum dado encontrado
+        if ($stmt === false) {
+            die("Erro na preparação da consulta: " . $db->error);
         }
+    
+        $stmt->execute();
+    
+        $resultado = $stmt->get_result(); // Obter o resultado como um mysqli_result
+    
+        if ($resultado === false) {
+            die("Erro ao obter o resultado: " . $db->error);
+        }
+    
+        $dados = $resultado->fetch_all(MYSQLI_ASSOC);
+        return $dados;
     }
+    
     
 }

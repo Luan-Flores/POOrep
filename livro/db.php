@@ -13,7 +13,6 @@ class BancoDados{
         if (!$this->conexao){
             echo "Não conectou ! ! ! ";
         }else{
-            echo "abriu";
             return $this->conexao;
         }
     }

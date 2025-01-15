@@ -18,19 +18,22 @@ require_once "../livro/controller.php";
 
         
         $consulta = $pessoa->consultar();
-        echo "interpreta";
-        var_dump($consulta);
-        echo "interpreta";
+        if ($consulta === false) {
+            die("Erro ao consultar o banco de dados: ");
+        }
+        
         
 
-        if ($consulta->num_rows > 0) {
-            // Exibir cada linha da tabela
-            while ($linha = $consultado->fetch_assoc()) {
+        if (!empty($consulta)) {
+            // Exibir cada linha do array
+            foreach ($consulta as $linha) {
+                echo "<table>";
                 echo "<tr>";
-                echo "<td>" . $linha['nome'] . "</td>";
-                echo "<td>" . $linha['idade'] . "</td>";
-                echo "<td>" . $linha['sexo'] . "</td>";
-                echo "</tr>";
+                echo "<td> Nome: " . htmlspecialchars($linha['nome']) . "</td>";
+                echo "<td> Idade: " . htmlspecialchars($linha['idade']) . "</td>";
+                echo "<td> Sexo: " . htmlspecialchars($linha['sexo']) . "</td>";
+                echo "<br></tr>";
+                echo "</table>";
             }
         } else {
             echo "<tr><td colspan='3'>Nenhum usuário encontrado.</td></tr>";

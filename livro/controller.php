@@ -11,10 +11,7 @@ class PessoaController{
         
         $pessoa->nome = $nome;
         $pessoa->idade = $idade;
-        $pessoa->sexo = $sexo;
-        $pessoa->printar($nome);
-        $pessoa->cadastro();
-        
+        $pessoa->sexo = $sexo; 
 
         if ($pessoa->cadastro()){
             echo "Cadastrado. ";
